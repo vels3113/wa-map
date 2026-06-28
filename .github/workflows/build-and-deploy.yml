@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - claude/party-event-single-room-map-vlmmbf
   workflow_dispatch: # allow manual execution
 
 permissions:
