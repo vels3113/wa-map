@@ -315,40 +315,6 @@
                  "width":96,
                  "x":256,
                  "y":96
-                }, 
-                {
-                 "height":96,
-                 "id":22,
-                 "name":"to-office",
-                 "properties":[
-                        {
-                         "name":"exitUrl",
-                         "type":"string",
-                         "value":"office.tmj#from-conference"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":96,
-                 "x":608,
-                 "y":0
-                }, 
-                {
-                 "height":32,
-                 "id":23,
-                 "name":"from-office",
-                 "properties":[
-                        {
-                         "name":"start",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":32,
-                 "x":640,
-                 "y":128
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -478,7 +444,7 @@
         {
          "name":"mapDescription",
          "type":"string",
-         "value":"A perfect virtual office to get started with WorkAdventure!"
+         "value":"Party event — single room conference map."
         }, 
         {
          "name":"mapImage",
@@ -488,7 +454,7 @@
         {
          "name":"mapName",
          "type":"string",
-         "value":"Conference"
+         "value":"Party Event"
         }, 
         {
          "name":"script",
