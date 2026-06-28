@@ -3,6 +3,11 @@ import { defineConfig } from "vite";
 import { getMaps, getMapsOptimizers, getMapsScripts, LogLevel, OptimizeOptions } from "wa-map-optimizer-vite";
 
 const maps = getMaps();
+for (const key of maps.keys()) {
+    if (key.includes("/extra/") || key.startsWith("./extra/") || key === "./extra") {
+        maps.delete(key);
+    }
+}
 
 let optimizerOptions: OptimizeOptions = {
     logs: process.env.LOG_LEVEL && process.env.LOG_LEVEL in LogLevel ? LogLevel[process.env.LOG_LEVEL] : LogLevel.NORMAL,

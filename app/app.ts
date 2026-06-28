@@ -1,3 +1,19 @@
-import { viteNodeApp as theApp } from '@workadventure/map-starter-kit-core/dist/server.js';
+import express, { Request, Response, NextFunction } from 'express';
+import core from '@workadventure/map-starter-kit-core/dist/server.js';
 
-export const viteNodeApp = theApp;
+const app = express();
+
+app.use('/maps/list', (_req: Request, res: Response, next: NextFunction) => {
+    const originalJson = res.json.bind(res);
+    (res as any).json = (data: unknown) => {
+        if (Array.isArray(data)) {
+            data = (data as any[]).filter((map) => !map.path?.startsWith('extra/'));
+        }
+        return originalJson(data);
+    };
+    next();
+});
+
+app.use(core as any);
+
+export const viteNodeApp = app;
