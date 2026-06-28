@@ -5,7 +5,7 @@ import {VitePluginNode} from "vite-plugin-node";
 
 const maps = getMaps();
 for (const key of maps.keys()) {
-    if (key.includes("/extra/") || key.startsWith("./extra/") || key === "./extra" || key.includes("office")) {
+    if (key.includes("/extra/") || key.startsWith("./extra/") || key === "./extra") {
         maps.delete(key);
     }
 }
