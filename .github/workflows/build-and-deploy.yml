@@ -5,7 +5,17 @@ on:
     branches:
       - master
       - claude/**
-  workflow_dispatch: # allow manual execution
+  workflow_dispatch:
+    inputs:
+      upload_mode:
+        description: "Override UPLOAD_MODE (leave blank to use .env value)"
+        required: false
+        default: ""
+        type: choice
+        options:
+          - ""
+          - MAP_STORAGE
+          - GH_PAGES
 
 permissions:
   contents: write
@@ -37,7 +47,12 @@ jobs:
 
       - name: Extract UPLOAD_MODE from .env
         run: |
-          UPLOAD_MODE=$(grep '^[^#]*UPLOAD_MODE' .env | cut -d '=' -f2)
+          INPUT_OVERRIDE="${{ github.event.inputs.upload_mode }}"
+          if [ -n "$INPUT_OVERRIDE" ]; then
+            UPLOAD_MODE="$INPUT_OVERRIDE"
+          else
+            UPLOAD_MODE=$(grep '^[^#]*UPLOAD_MODE' .env | cut -d '=' -f2)
+          fi
           if [ -z "$UPLOAD_MODE" ]; then
             echo "Error: UPLOAD_MODE is not set in .env."
             exit 1
