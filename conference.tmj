@@ -10297,7 +10297,7 @@
           "y": 544
         },
         {
-          "height": 32,
+          "height": 300,
           "id": 24,
           "name": "tutorialAnchor",
           "opacity": 1,
@@ -10305,7 +10305,7 @@
           "rotation": 0,
           "type": "",
           "visible": false,
-          "width": 32,
+          "width": 400,
           "x": 160,
           "y": 416
         }
