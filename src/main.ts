@@ -1,20 +1,25 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
-import tutorialPopupContent from "./tutorial-popup.txt?raw";
 
 console.info('Party event script started');
 
-WA.onInit().then(() => {
+WA.onInit().then(async () => {
     console.info('Scripting API ready');
 
-    WA.ui.openPopup("tutorialAnchor", tutorialPopupContent, [
-        {
-            label: "Понятно!",
-            className: "primary",
-            callback: (p) => p.close(),
-        },
-    ]);
+    const sessionId = Math.random().toString(36).slice(2);
+    const closeEvent = `closeTutorial_${sessionId}`;
+    const tutorialUrl = new URL('../tutorial.html', import.meta.url);
+    tutorialUrl.searchParams.set('closeEvent', closeEvent);
+
+    const website = await WA.ui.website.open({
+        url: tutorialUrl.href,
+        position: { vertical: "middle", horizontal: "middle" },
+        size: { width: "460px", height: "360px" },
+        allowApi: true,
+    });
+
+    WA.event.on(closeEvent).subscribe(() => website.close());
 
     bootstrapExtra().then(() => {
         console.info('Scripting API Extra ready');
