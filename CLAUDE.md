@@ -49,6 +49,10 @@ Both configs use `wa-map-optimizer-vite` (`getMaps`, `getMapsScripts`, `getMapsO
 
 `.github/workflows/build-and-deploy.yml` runs on pushes to `master`. It reads `UPLOAD_MODE` from `.env` to decide between WA Map Storage (requires `MAP_STORAGE_API_KEY` secret) and GitHub Pages deployment.
 
+## Committing
+
+Only commit when the user explicitly requests it. Do not auto-commit docs, specs, or any other files.
+
 ## Adding a new map
 
 1. Copy `office.tmj` and rename it in the project root.
