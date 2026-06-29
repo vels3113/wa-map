@@ -1,14 +1,14 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
-import tutorialPopupHtml from "./tutorial-popup.html?raw";
+import tutorialPopupContent from "./tutorial-popup.txt?raw";
 
 console.info('Party event script started');
 
 WA.onInit().then(() => {
     console.info('Scripting API ready');
 
-    WA.ui.openPopup("tutorialAnchor", tutorialPopupHtml, [
+    WA.ui.openPopup("tutorialAnchor", tutorialPopupContent, [
         {
             label: "Понятно!",
             className: "primary",
