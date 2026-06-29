@@ -15,7 +15,7 @@ WA.onInit().then(async () => {
     const website = await WA.ui.website.open({
         url: tutorialUrl.href,
         position: { vertical: "middle", horizontal: "middle" },
-        size: { width: "460px", height: "360px" },
+        size: { width: "80vw", height: "80vh" },
         allowApi: true,
     });
 
