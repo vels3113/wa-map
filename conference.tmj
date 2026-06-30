@@ -11386,6 +11386,16 @@
        "name": "jitsiTrigger",
        "type": "string",
        "value": "onaction"
+      },
+      {
+       "name": "focusable",
+       "type": "bool",
+       "value": true
+      },
+      {
+       "name": "zoom_margin",
+       "type": "int",
+       "value": 1
       }
      ],
      "rotation": 0,
