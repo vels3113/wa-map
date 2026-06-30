@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://play.workadventu.re/iframe_api.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { height: 100%; }
+        body {
+            font-family: sans-serif;
+            background: rgba(20, 20, 30, 0.95);
+            color: #f0f0f0;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border-radius: 8px;
+        }
+        h3 { font-size: 1.1em; }
+        p, li { line-height: 1.5; font-size: 0.9em; }
+        ul { padding-left: 20px; }
+        li { margin: 4px 0; }
+        .actions { display: flex; justify-content: flex-end; margin-top: auto; padding-top: 8px; }
+        button {
+            padding: 8px 20px;
+            background: #5865f2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+        button:hover { background: #4752c4; }
+    </style>
+</head>
+<body>
+    <h3>Добро пожаловать на вечеринку! 🎉</h3>
+    <p>👀 <strong>Внимание:</strong> по умолчанию все, кто рядом с тобой на карте, тебя видят и слышат — и ты их тоже.</p>
+    <p>На карте три зоны:</p>
+    <ul>
+        <li>🎙 <strong>Jitsi</strong> — общий созвон для всех. Найди зону <em>справа внизу</em>.</li>
+        <li>📺 <strong>Стримы</strong> — смотрим Формулу 1. Найди зону <em>справа вверху</em>.</li>
+        <li>🧠 <strong>Своя игра</strong> — зона для игры. Найди <em>внизу</em> или следуй указателям на карте.</li>
+    </ul>
+    <p>Используй стрелки для передвижения. Зайди в зону — и она активируется автоматически.</p>
+    <div class="actions">
+        <button id="close-btn">Понятно!</button>
+    </div>
+    <script>
+        const closeEvent = new URLSearchParams(location.search).get('closeEvent');
+        WA.onInit().then(() => {
+            document.getElementById('close-btn').addEventListener('click', () => {
+                WA.event.broadcast(closeEvent, {});
+            });
+        });
+    </script>
+</body>
+</html>
