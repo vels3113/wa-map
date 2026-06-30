@@ -59,3 +59,13 @@ Only commit when the user explicitly requests it. Do not auto-commit docs, specs
 2. Create a matching script in `src/` if needed (e.g. `src/mymap.ts`).
 3. Set the `script` property in the new `.tmj` to point to `src/mymap.ts`.
 4. The optimizer auto-discovers all `.tmj` files in the root — no config changes needed.
+
+## Adding new area entities (type=area)
+
+Every object with `"type": "area"` **must** include the `searchable` property so it appears in the WA map editor's search:
+
+```json
+{ "name": "searchable", "type": "bool", "value": true }
+```
+
+Add it to the object's `properties` array alongside the other WA properties (`jitsiRoom`, `openWebsite`, etc.).
