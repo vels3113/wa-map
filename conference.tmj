@@ -11458,7 +11458,7 @@
       }
      ],
      "rotation": 0,
-     "type": "",
+     "type": "area",
      "visible": true,
      "width": 480,
      "x": 288,
@@ -11538,7 +11538,7 @@
       }
      ],
      "rotation": 0,
-     "type": "",
+     "type": "variable",
      "visible": true,
      "width": 0,
      "x": 0,
@@ -11571,7 +11571,7 @@
       }
      ],
      "rotation": 0,
-     "type": "",
+     "type": "variable",
      "visible": true,
      "width": 0,
      "x": 0,
