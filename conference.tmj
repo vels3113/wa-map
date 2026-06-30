@@ -11459,7 +11459,7 @@
       {
        "name": "jitsiRoom",
        "type": "string",
-       "value": "StreamZone"
+       "value": "{{{ streamJitsiRoom }}}"
       },
       {
        "name": "jitsiTrigger",
