@@ -4,8 +4,6 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.info('Party event script started');
 
-const DEFAULT_STREAM_URL = 'https://vkvideo.ru/video_ext.php?oid=-175168891&id=456241501&hd=3&autoplay=1';
-
 WA.onInit().then(async () => {
     console.info('Scripting API ready');
 
@@ -22,37 +20,6 @@ WA.onInit().then(async () => {
     });
 
     WA.event.on(closeEvent).subscribe(() => website.close());
-
-    // Stream zone: open side panel + highlight on enter, close on leave
-    let streamPanel: Awaited<ReturnType<typeof WA.ui.website.open>> | null = null;
-
-    WA.room.area.onEnter('streamZone').subscribe(async () => {
-        const configured = WA.state.loadVariable('streamURL');
-        const streamUrl = (typeof configured === 'string' && configured)
-            ? configured
-            : DEFAULT_STREAM_URL;
-        const mutedUrl = streamUrl.includes('?')
-            ? `${streamUrl}&mute=1`
-            : `${streamUrl}?mute=1`;
-
-        streamPanel = await WA.ui.website.open({
-            url: mutedUrl,
-            position: { vertical: "middle", horizontal: "right" },
-            size: { width: "40%", height: "80%" },
-            allowApi: false,
-            allowPolicy: "autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock",
-        });
-
-        WA.room.showLayer('stream-zone-highlight');
-    });
-
-    WA.room.area.onLeave('streamZone').subscribe(async () => {
-        if (streamPanel) {
-            await streamPanel.close();
-            streamPanel = null;
-        }
-        WA.room.hideLayer('stream-zone-highlight');
-    });
 
     bootstrapExtra().then(() => {
         console.info('Scripting API Extra ready');
