@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <meta name="title" content="WorkAdventure Map">
+    <title>WorkAdventure map</title>
+    <script>
+        // The map file that is deployed alongside this page.
+        const MAP_FILE = 'conference.tmj';
+
+        window.onload = function () {
+            const host = window.location.host;
+            let path = window.location.pathname;
+            if (path.endsWith('index.html')) {
+                path = path.substring(0, path.length - 'index.html'.length);
+            }
+            if (!path.endsWith('/')) {
+                path += '/';
+            }
+
+            const instanceId = Math.random().toString(36).substring(2, 15);
+            const playUrl = `https://play.workadventu.re/_/${instanceId}/${host}${path}${MAP_FILE}`;
+            const tmjUrl = window.location.protocol + '//' + host + path + MAP_FILE;
+
+            const testLink = document.getElementById('testMapURL');
+            testLink.href = playUrl;
+            testLink.innerText = playUrl;
+            document.getElementById('testMapBtnURL').href = playUrl;
+
+            document.getElementById('tmjURL').innerText = tmjUrl;
+
+            document.getElementById('gettingStartedLink').href =
+                'https://workadventu.re/getting-started?name=Map&mapUrl=' + encodeURIComponent(tmjUrl);
+        };
+    </script>
+    <style>
+        html, body { height: 100%; }
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Roboto Condensed', Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: #1b1b2f;
+        }
+        .content { flex: 1 0 auto; }
+        header { margin: 30px; }
+        h1 { font-weight: bold; font-size: 1.8rem; }
+        h2 { font-weight: bold; font-size: 1.3rem; }
+        section { margin-top: 3rem; }
+        .tips { font-size: 0.8rem; font-style: italic; color: #555; }
+        .map {
+            width: 30%;
+            margin-bottom: 3%;
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+        }
+        a.button {
+            display: inline-block;
+            padding: 13px 20px 12px;
+            background-color: rgba(65, 86, 246, 0.9);
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 1.3em;
+        }
+        a.button:hover { background-color: rgb(65, 86, 246); cursor: pointer; }
+        .url-box {
+            display: inline-block;
+            border: 1px solid rgb(65, 86, 246);
+            border-radius: 3px;
+            padding: 6px 10px;
+            background-color: rgba(65, 86, 246, 0.1);
+            word-break: break-all;
+        }
+        .url { font-family: 'Courier New', Courier, monospace; font-size: 14px; }
+        footer { flex-shrink: 0; display: block; padding: 2rem 5vw; }
+        a { color: rgb(65, 86, 246); }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <header>
+            <h1>WorkAdventure map</h1>
+        </header>
+        <main>
+            <section>
+                <h2>Test my map</h2>
+                <p><a id="testMapURL" href="#" class="url"></a></p>
+                <p class="tips">(To test another map, replace the file name at the end of the URL with another <code>.tmj</code> file.)</p>
+                <img src="./conference.png" alt="Map thumbnail" class="map">
+                <p><a id="testMapBtnURL" href="#" class="button">Test my map</a></p>
+            </section>
+
+            <section>
+                <h2>Publish my map</h2>
+                <p>Register your room on WorkAdventure!</p>
+                <p>Copy and paste the map URL into WorkAdventure's administration panel:</p>
+                <p><span id="tmjURL" class="url-box url"></span></p>
+                <p><a id="gettingStartedLink" href="https://workadventu.re/getting-started" target="_blank">Open the Getting Started guide</a></p>
+            </section>
+
+            <section>
+                <h2>Connect and get help</h2>
+                <p>
+                    <a href="https://docs.workadventu.re/" target="_blank">Documentation</a> &middot;
+                    <a href="https://discord.gg/G6Xh9ZM9aR" target="_blank">Discord community</a> &middot;
+                    <a href="https://github.com/workadventure/workadventure" target="_blank">GitHub</a>
+                </p>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <a href="https://workadventu.re/" target="_blank" title="workadventu.re">&copy; WorkAdventure</a>
+    </footer>
+</body>
+
+</html>
