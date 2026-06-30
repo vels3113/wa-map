@@ -10322,6 +10322,21 @@
        "name": "jitsiTrigger",
        "type": "string",
        "value": "onEnter"
+      },
+      {
+       "name": "openWebsite",
+       "type": "string",
+       "value": "https://vkvideo.ru/video_ext.php?oid=-175168891&id=456241501&hd=3&autoplay=1&mute=1"
+      },
+      {
+       "name": "openWebsiteTrigger",
+       "type": "string",
+       "value": "onEnter"
+      },
+      {
+       "name": "openWebsitePolicy",
+       "type": "string",
+       "value": "autoplay; encrypted-media; fullscreen; picture-in-picture"
       }
      ],
      "rotation": 0,
