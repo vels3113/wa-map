@@ -10307,29 +10307,6 @@
      "width": 400,
      "x": 160,
      "y": 416
-    },
-    {
-     "height": 320,
-     "id": 27,
-     "name": "streamZone",
-     "properties": [
-      {
-       "name": "jitsiRoom",
-       "type": "string",
-       "value": "{{{ streamJitsiRoom }}}"
-      },
-      {
-       "name": "jitsiTrigger",
-       "type": "string",
-       "value": "onEnter"
-      }
-     ],
-     "rotation": 0,
-     "type": "",
-     "visible": true,
-     "width": 480,
-     "x": 288,
-     "y": 64
     }
    ],
    "opacity": 1,
@@ -12737,7 +12714,7 @@
   }
  ],
  "nextlayerid": 62,
- "nextobjectid": 28,
+ "nextobjectid": 27,
  "orientation": "orthogonal",
  "properties": [
   {
